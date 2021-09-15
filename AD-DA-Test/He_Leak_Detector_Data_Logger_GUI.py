@@ -81,7 +81,8 @@ def code(value):
             
             """
             
-            serverIP='192.0.2.10'
+            serverIP=''
+            #IP deleted
             # sqlDatabase = 'allusers'
             # sqlTable = 'users'
             sqlUsername ='REMOVED_USER'
