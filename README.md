@@ -61,6 +61,12 @@ The dividers can't just be a regulator, because the code needs to see the voltag
 
 The board design is in [`hardware/helium-leak-detector-v3.fzz`](hardware/helium-leak-detector-v3.fzz). Open it with [Fritzing](https://fritzing.org), which is free.
 
+### Housing
+
+I designed a 3D-printed housing to hold the whole unit: a body with an opening for the cords and a sliding lid with ventilation slots to keep the Pi cool.
+
+![Render of the 3D-printed housing](docs/images/housing_render.png)
+
 ## Converting voltage to leak rate and pressure
 
 **Leak rate.** The detector's analog output is logarithmic. Its manual has a table of output voltage against helium signal in two modes: fine leak (FL) and gross leak (GL), where GL is 100 times FL. No single equation fit the table well, so the code interpolates between the table points with SciPy's `interp1d`. A (0 V, 0) point is added so readings under 0.10 V still convert, to a value near zero. Units are mbar l/s. The table is in [`data/voltage_to_leak_rate.csv`](data/voltage_to_leak_rate.csv), and the same values are built into the GUI code.
